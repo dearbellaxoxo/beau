@@ -19,149 +19,72 @@
             font-family: 'Quicksand', sans-serif;
             background-color: var(--baby-pink);
             background-image: url('https://www.transparenttextures.com/patterns/white-lace.png');
-            color: var(--text-main); 
-            margin: 0; 
-            display: flex; 
-            flex-direction: column; 
-            height: 100vh; 
-            overflow: hidden;
+            color: var(--text-main); margin: 0; display: flex; flex-direction: column; height: 100vh; overflow: hidden;
             -webkit-tap-highlight-color: transparent;
         }
 
         h1, h2, h3, .serif { font-family: 'Playfair Display', serif; font-style: italic; text-align: center; }
 
-        /* iPhone 13 Optimization: Centering and Spacing */
+        /* iPhone 13 Optimization: Centering & Padding */
         .card {
-            background: rgba(255, 255, 255, 0.95); 
-            border-radius: 30px; 
-            padding: 20px; 
-            margin-bottom: 15px;
-            position: relative; 
-            border: 2px solid white; 
-            width: 92%; /* Centered on mobile */
-            box-sizing: border-box;
-            box-shadow: 0 0 0 4px var(--lace-white), 0 10px 20px var(--lace-shadow);
+            background: rgba(255, 255, 255, 0.95); border-radius: 35px; padding: 20px; margin-bottom: 15px;
+            position: relative; border: 2px solid white; width: 92%; box-sizing: border-box;
+            box-shadow: 0 0 0 4px var(--lace-white), 0 10px 25px var(--lace-shadow);
+            margin-left: auto; margin-right: auto;
         }
         
         .card::after { content: '🎀'; position: absolute; top: -12px; right: 15px; font-size: 1.2rem; }
 
-        header { 
-            background: var(--soft-white); 
-            padding: 15px 10px 10px 10px; 
-            text-align: center; 
-            border-bottom: 3px double var(--baby-pink); 
-            z-index: 10; 
-        }
+        header { background: var(--soft-white); padding: 15px 10px 10px 10px; text-align: center; border-bottom: 3px double var(--baby-pink); z-index: 10; position: relative; }
         header h1 { margin: 0; font-size: 1.6rem; color: var(--ribbon-pink); text-shadow: 1px 1px white; }
-        .motto { font-size: 0.75rem; color: var(--ribbon-pink); margin-bottom: 4px; font-weight: bold; letter-spacing: 1px; text-transform: uppercase; }
-        .daily-note { font-size: 0.75rem; color: #a18080; font-style: italic; min-height: 18px; margin-bottom: 8px; padding: 0 15px; line-height: 1.2; }
+        .motto { font-size: 0.75rem; color: var(--ribbon-pink); margin-bottom: 5px; font-weight: bold; letter-spacing: 1px; text-transform: lowercase; }
+        .daily-note { font-size: 0.75rem; color: #a18080; font-style: italic; min-height: 18px; margin-bottom: 8px; padding: 0 20px; line-height: 1.2; }
 
         .day-controls { display: flex; justify-content: center; align-items: center; gap: 20px; margin-bottom: 8px; }
-        .day-btn { background: var(--lace-white); border: 1px solid var(--ribbon-pink); border-radius: 50%; width: 32px; height: 32px; cursor: pointer; color: var(--ribbon-pink); font-weight: bold; display: flex; align-items: center; justify-content: center; }
+        .day-btn { background: var(--lace-white); border: 1px solid var(--ribbon-pink); border-radius: 50%; width: 32px; height: 32px; cursor: pointer; color: var(--ribbon-pink); font-weight: bold; display: flex; align-items: center; justify-content: center; transition: 0.3s; }
 
-        #viewport { 
-            flex: 1; 
-            overflow-y: auto; 
-            padding: 15px 0; 
-            display: flex; 
-            flex-direction: column; 
-            align-items: center; 
-            padding-bottom: 100px; /* Space for nav */
-        }
-
-        .screen, .view { display: none; width: 100%; max-width: 390px; animation: softFade 0.5s ease; }
+        #viewport { flex: 1; overflow-y: auto; padding: 15px 0; display: flex; flex-direction: column; align-items: center; padding-bottom: 130px; }
+        .screen, .view { display: none; width: 100%; animation: softFade 0.6s ease; }
         .active { display: block; }
 
-        @keyframes softFade { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes softFade { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-        .circle-container { 
-            position: relative; 
-            width: 190px; 
-            height: 190px; 
-            margin: 5px auto 15px auto; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            background: radial-gradient(circle, white 60%, var(--lace-white) 100%); 
-            border-radius: 50%; 
-            border: 4px double var(--baby-pink); 
-        }
-        .progress-ring__circle { transform: rotate(-90deg); transform-origin: 50% 50%; stroke: var(--ribbon-pink); stroke-dasharray: 565.48; stroke-dashoffset: 565.48; transition: 0.8s; stroke-linecap: round; }
-        
-        /* Ritual Item Box Fit */
+        /* Centering Checklist Items */
         .ritual-item { 
-            display: flex; 
-            align-items: center; 
-            margin: 10px 0; 
-            font-size: 0.85rem; 
-            background: white; 
-            padding: 12px; 
-            border-radius: 18px; 
-            border: 1px solid var(--baby-pink); 
-            box-sizing: border-box;
-            width: 100%;
+            display: flex; align-items: center; justify-content: center; 
+            margin: 10px 0; font-size: 0.85rem; background: white; padding: 12px; 
+            border-radius: 20px; border: 1px solid var(--baby-pink); text-align: center;
         }
-        .ritual-item span { flex: 1; margin-left: 10px; line-height: 1.3; }
+        .ritual-item input[type="checkbox"] { margin-right: 12px; transform: scale(1.2); }
         
-        .water-grid { display: flex; justify-content: center; gap: 6px; margin-top: 12px; flex-wrap: wrap; }
-        .glass { font-size: 1.5rem; cursor: pointer; filter: grayscale(1); transition: 0.3s; opacity: 0.3; }
+        .circle-container { position: relative; width: 190px; height: 190px; margin: 5px auto 15px auto; display: flex; align-items: center; justify-content: center; background: radial-gradient(circle, white 60%, var(--lace-white) 100%); border-radius: 50%; border: 4px double var(--baby-pink); }
+        .progress-ring__circle { transform: rotate(-90deg); stroke: var(--ribbon-pink); stroke-dasharray: 565.48; stroke-dashoffset: 565.48; transition: 0.8s; stroke-linecap: round; }
+        
+        .water-grid { display: flex; justify-content: center; gap: 10px; margin-top: 15px; flex-wrap: wrap; padding: 0 10px; }
+        .glass { font-size: 1.8rem; cursor: pointer; filter: grayscale(1); transition: 0.4s; opacity: 0.2; }
         .glass.filled { filter: grayscale(0); opacity: 1; transform: scale(1.1); }
 
-        .graph-container { height: 100px; display: flex; align-items: flex-end; gap: 6px; border-bottom: 2px solid var(--baby-pink); padding: 15px 10px 5px 10px; margin: 10px 0; background: rgba(255,255,255,0.6); border-radius: 15px; }
+        .graph-container { height: 100px; display: flex; align-items: flex-end; gap: 6px; border-bottom: 2px solid var(--baby-pink); padding: 20px 5px 5px 5px; margin: 10px 0; background: rgba(255,255,255,0.6); border-radius: 15px; }
         .graph-bar { background: var(--ribbon-pink); flex: 1; border-radius: 5px 5px 0 0; opacity: 0.7; position: relative; min-width: 20px; }
         .graph-bar::after { content: attr(data-val); position: absolute; top: -15px; left: 50%; transform: translateX(-50%); font-size: 0.55rem; color: var(--text-main); }
 
-        nav { 
-            position: fixed; 
-            bottom: 0; 
-            width: 100%; 
-            background: rgba(255,255,255,0.98); 
-            display: none; 
-            justify-content: space-around; 
-            padding: 10px 0 25px 0; 
-            border-top: 1px solid var(--baby-pink); 
-            z-index: 100; 
-            box-shadow: 0 -5px 15px rgba(0,0,0,0.03);
-        }
-        .nav-btn { background: none; border: none; font-size: 1.4rem; cursor: pointer; filter: grayscale(1); opacity: 0.5; transition: 0.2s; }
+        nav { position: fixed; bottom: 0; width: 100%; background: rgba(255,255,255,0.98); display: none; justify-content: space-around; padding: 10px 0 35px 0; border-top: 2px solid var(--baby-pink); z-index: 100; box-shadow: 0 -5px 15px rgba(0,0,0,0.03); }
+        .nav-btn { background: none; border: none; font-size: 1.4rem; cursor: pointer; filter: grayscale(1); opacity: 0.5; transition: 0.3s; padding: 10px; }
         .nav-btn.active { filter: grayscale(0); transform: translateY(-3px); opacity: 1; }
 
-        input, select { 
-            border: none; 
-            border-bottom: 2px solid var(--baby-pink); 
-            background: transparent; 
-            text-align: center; 
-            padding: 10px; 
-            color: var(--text-main); 
-            font-family: 'Quicksand'; 
-            width: 80%; 
-            margin: 10px 0; 
-            outline: none;
-            font-size: 1rem;
-        }
-        .next-btn { background: var(--ribbon-pink); color: white; border: 2px solid white; padding: 12px 40px; border-radius: 30px; cursor: pointer; font-weight: bold; margin-top: 15px; font-size: 0.9rem; }
+        input, select { border: none; border-bottom: 2px solid var(--baby-pink); background: transparent; text-align: center; padding: 10px; color: var(--text-main); font-family: 'Quicksand'; width: 85%; margin: 8px 0; outline: none; font-size: 1rem; }
+        .next-btn { background: var(--ribbon-pink); color: white; border: 2px solid white; padding: 12px 35px; border-radius: 30px; cursor: pointer; font-weight: bold; margin-top: 15px; box-shadow: 0 4px 10px var(--lace-shadow); width: 80%; }
 
-        /* Photo Upload UI */
         .photo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-        .photo-box { 
-            aspect-ratio: 3/4; 
-            background: var(--lace-white); 
-            border: 2px dashed var(--ribbon-pink); 
-            border-radius: 20px; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            font-size: 0.75rem; 
-            color: var(--ribbon-pink); 
-            cursor: pointer; 
-            overflow: hidden; 
-            position: relative; 
-        }
+        .photo-box { aspect-ratio: 3/4; background: var(--lace-white); border: 2px dashed var(--ribbon-pink); border-radius: 20px; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; color: var(--ribbon-pink); cursor: pointer; overflow: hidden; position: relative; }
         .photo-box img { width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; z-index: 2; }
         
-        .history-card { background: white; border-radius: 20px; padding: 12px; margin-top: 12px; border: 1px solid var(--baby-pink); }
+        .history-card { background: white; border-radius: 25px; padding: 12px; margin-top: 15px; border: 1px solid var(--baby-pink); }
         .history-flex { display: flex; gap: 8px; margin-top: 8px; }
-        .history-img { width: 50%; aspect-ratio: 3/4; border-radius: 12px; object-fit: cover; }
+        .history-img { width: 50%; aspect-ratio: 3/4; border-radius: 15px; object-fit: cover; border: 1px solid var(--baby-pink); }
+
+        /* Fix for scrollable meal list */
+        #meal-list { max-height: 300px; overflow-y: auto; padding-right: 5px; }
     </style>
 </head>
 <body>
@@ -169,34 +92,34 @@
     <header id="main-header" style="display:none;">
         <div class="day-controls">
             <button class="day-btn" onclick="changeDay(-1)">‹</button>
-            <span class="serif" id="display-date" style="font-weight: bold; font-size: 1.1rem;">Today</span>
+            <span class="serif" id="display-date" style="font-size: 1.1rem;">Today</span>
             <button class="day-btn" onclick="changeDay(1)">›</button>
         </div>
         <h1 id="greet-name">Beau</h1>
         <div class="motto">discipline is elegance 🌷</div>
-        <div class="daily-note" id="daily-reminder">You are a vision of grace.</div>
+        <div class="daily-note" id="daily-reminder">...</div>
         <div id="streak-banner" style="font-size: 0.75rem; color: var(--ribbon-pink); font-weight: 500;">
             🩰 Streak: <span id="streak-val">0</span> | Grace: <span id="grace-val">0</span> 
-            <button onclick="useGrace()" style="border:none; background:none; text-decoration:underline; font-size:0.7rem; cursor:pointer; color: var(--ribbon-pink); margin-left: 5px;">+ Use Grace</button>
+            <button onclick="useGrace()" style="border:none; background:none; text-decoration:underline; font-size:0.7rem; cursor:pointer; color: var(--ribbon-pink); margin-left:10px;">+ Use Grace</button>
         </div>
     </header>
 
     <main id="viewport">
         <section id="screen-onboarding" class="screen active">
-            <div class="card" style="text-align: center; margin: 20px auto;">
+            <div class="card" style="text-align: center; margin-top: 20px;">
                 <div id="q1" class="step-q active">
                     <p class="serif">What is your name, angel? 🏹</p>
-                    <input type="text" id="in-name" placeholder="Your name...">
+                    <input type="text" id="in-name" placeholder="Name...">
                     <br><button class="next-btn" onclick="nextQ(2)">Next 🦢</button>
                 </div>
                 <div id="q2" class="step-q" style="display:none">
                     <p class="serif">Your current weight? (kg) 🩰</p>
-                    <input type="number" id="in-weight" placeholder="00.0">
+                    <input type="number" id="in-weight" placeholder="00.0" inputmode="decimal">
                     <br><button class="next-btn" onclick="nextQ(3)">Next 🎀</button>
                 </div>
                 <div id="q3" class="step-q" style="display:none">
                     <p class="serif">Current waist size? (cm) ✨</p>
-                    <input type="number" id="in-waist" placeholder="00">
+                    <input type="number" id="in-waist" placeholder="00" inputmode="numeric">
                     <br><button class="next-btn" onclick="nextQ(4)">Next 🏹</button>
                 </div>
                 <div id="q4" class="step-q" style="display:none">
@@ -218,14 +141,14 @@
                     <br><button class="next-btn" onclick="nextQ(6)">Next 🎀</button>
                 </div>
                 <div id="q6" class="step-q" style="display:none">
-                    <p class="serif">Target Weight (kg)? 🏹</p>
-                    <input type="number" id="in-goal-w" placeholder="Target">
+                    <p class="serif">Goal Weight (kg)? 🏹</p>
+                    <input type="number" id="in-goal-w" placeholder="Target weight" inputmode="decimal">
                     <br><button class="next-btn" onclick="nextQ(7)">Next 🦢</button>
                 </div>
                 <div id="q7" class="step-q" style="display:none">
-                    <p class="serif">Your goal date? 📅</p>
+                    <p class="serif">Your goal end date? 📅</p>
                     <input type="date" id="in-goal-d">
-                    <br><button class="next-btn" onclick="finishOnboarding()">Begin 🌷</button>
+                    <br><button class="next-btn" onclick="finishOnboarding()">Start Journey 🌷</button>
                 </div>
             </div>
         </section>
@@ -233,11 +156,11 @@
         <section id="screen-main" class="screen">
             <div id="view-home" class="view active">
                 <div class="circle-container">
-                    <svg class="progress-ring" width="200" height="200">
-                        <circle class="progress-ring__circle" stroke-width="8" fill="transparent" r="90" cx="100" cy="100"/>
+                    <svg class="progress-ring" width="180" height="180">
+                        <circle class="progress-ring__circle" stroke-width="10" fill="transparent" r="80" cx="90" cy="90"/>
                     </svg>
                     <div style="position:absolute; text-align:center;">
-                        <h2 id="circle-main" style="margin:0; font-size:2.2rem; color:var(--ribbon-pink);">0</h2>
+                        <h2 id="circle-main" style="margin:0; font-size:2rem; color:var(--ribbon-pink);">0</h2>
                         <small class="serif">Remaining</small>
                         <div id="prot-count" style="font-size:0.75rem; font-weight:bold; color:var(--ribbon-pink); margin-top:5px;">0/0g Prot</div>
                     </div>
@@ -251,11 +174,11 @@
             <div id="view-food" class="view">
                 <h2 class="serif">Gourmet Selection 🍓</h2>
                 <div class="card">
-                    <input type="text" id="mealSearch" onkeyup="renderMeals()" placeholder="Search 30 recipes..." style="width:100%;">
-                    <div id="meal-list" style="max-height: 280px; overflow-y: auto;"></div>
+                    <input type="text" id="mealSearch" onkeyup="renderMeals()" placeholder="Search recipes..." style="width:100%; border-bottom-color: #eee;">
+                    <div id="meal-list"></div>
                 </div>
-                <div class="card">
-                    <p class="serif" style="text-align:center; margin-top:0;">Hydration Tracker</p>
+                <div class="card" style="text-align:center;">
+                    <p class="serif" style="margin:0;">Hydration Tracker</p>
                     <div class="water-grid" id="water-tracker"></div>
                 </div>
             </div>
@@ -263,23 +186,23 @@
             <div id="view-stats" class="view">
                 <h2 class="serif">Your Progress 📈</h2>
                 <div class="card">
-                    <p class="serif" style="font-size:0.8rem; text-align: left;">Weight (kg)</p>
+                    <p class="serif" style="font-size:0.8rem; margin-bottom:5px;">Weight Journey (kg)</p>
                     <div class="graph-container" id="weight-graph"></div>
-                    <p class="serif" style="font-size:0.8rem; margin-top:15px; text-align: left;">Waist (cm)</p>
+                    <p class="serif" style="font-size:0.8rem; margin: 15px 0 5px 0;">Waist Journey (cm)</p>
                     <div class="graph-container" id="waist-graph"></div>
                 </div>
-                <div class="card">
-                    <input type="number" id="up-w" placeholder="Log Today's Weight">
-                    <input type="number" id="up-waist" placeholder="Log Today's Waist">
-                    <button class="next-btn" style="width:100%;" onclick="updateStats()">Update 🏹</button>
+                <div class="card" style="text-align:center;">
+                    <input type="number" id="up-w" placeholder="Update Weight" inputmode="decimal">
+                    <input type="number" id="up-waist" placeholder="Update Waist" inputmode="numeric">
+                    <button class="next-btn" style="width:100%;" onclick="updateStats()">Log Progress 🏹</button>
                 </div>
             </div>
 
             <div id="view-sculpt" class="view">
                 <h2 class="serif">Body Sculpting 🩰</h2>
-                <div class="card">
-                    <h3 id="daily-focus" class="serif" style="color:var(--ribbon-pink); margin-top:0;">Focus</h3>
-                    <p id="diff-week" style="text-align:center; font-size:0.75rem; font-weight:bold; margin-bottom:15px;"></p>
+                <div class="card" style="text-align:center;">
+                    <h3 id="daily-focus" class="serif" style="color:var(--ribbon-pink); margin-bottom:5px;">...</h3>
+                    <p id="diff-week" style="font-size:0.7rem; font-weight:700; color: #a18080; margin-bottom:15px;"></p>
                     <div id="video-links"></div>
                 </div>
             </div>
@@ -289,26 +212,26 @@
                 <div class="card">
                     <div class="photo-grid">
                         <div class="photo-box" onclick="document.getElementById('f-front').click()">
-                            <input type="file" id="f-front" hidden onchange="preview(this, 'p-front')">
-                            <img id="p-front" style="display:none"> <span>Front 🎀</span>
+                            <input type="file" id="f-front" hidden accept="image/*" onchange="preview(this, 'p-front')">
+                            <img id="p-front" style="display:none"> <span id="t-front">Front 🎀</span>
                         </div>
                         <div class="photo-box" onclick="document.getElementById('f-side').click()">
-                            <input type="file" id="f-side" hidden onchange="preview(this, 'p-side')">
-                            <img id="p-side" style="display:none"> <span>Side 🦢</span>
+                            <input type="file" id="f-side" hidden accept="image/*" onchange="preview(this, 'p-side')">
+                            <img id="p-side" style="display:none"> <span id="t-side">Side 🦢</span>
                         </div>
                     </div>
-                    <button class="next-btn" style="width:100%;" onclick="savePhotos()">Save Weekly Entry</button>
+                    <button class="next-btn" style="width:100%;" onclick="savePhotos()">Save Weekly Vault</button>
                 </div>
-                <div id="photo-history" style="width:100%"></div>
+                <div id="photo-history" style="width: 100%;"></div>
             </div>
 
             <div id="view-settings" class="view">
-                <h2 class="serif">Settings ⚙️</h2>
-                <div class="card" style="text-align: center;">
-                    <label style="font-size: 0.8rem; font-weight: bold;">Daily Calorie Goal</label><br>
-                    <input type="number" id="set-cals"><br><br>
-                    <label style="font-size: 0.8rem; font-weight: bold;">Daily Protein Goal (g)</label><br>
-                    <input type="number" id="set-prot">
+                <h2 class="serif">Refinement ⚙️</h2>
+                <div class="card" style="text-align:center;">
+                    <p class="serif" style="font-size: 0.9rem;">Calorie Goal</p>
+                    <input type="number" id="set-cals" inputmode="numeric">
+                    <p class="serif" style="font-size: 0.9rem; margin-top:15px;">Protein Goal (g)</p>
+                    <input type="number" id="set-prot" inputmode="numeric">
                     <button class="next-btn" style="width:100%;" onclick="saveSets()">Apply Changes 🎀</button>
                 </div>
             </div>
@@ -325,7 +248,7 @@
     </nav>
 
     <script>
-        let db = JSON.parse(localStorage.getItem('beau_v13')) || {
+        let db = JSON.parse(localStorage.getItem('beau_final_v1')) || {
             setup: false, name: "", streak: 0, grace: 0, limit: 1400, prot: 70,
             history: {}, weights: [], waists: [], offset: 0, photos: [], focus: "slimming"
         };
@@ -334,28 +257,31 @@
             {n:"Mia Green", u:"https://www.youtube.com/@miagreen"},
             {n:"Madfit", u:"https://www.youtube.com/@MadFit"},
             {n:"Daisy Keech", u:"https://www.youtube.com/@DaisyKeech"},
-            {n:"Hailey C", u:"https://www.youtube.com/@hailey_c"},
+            {n:"Hailey C", u:"https://www.youtube.com/@HaileyC"},
             {n:"Nicole Pilates", u:"https://www.youtube.com/@NicolePilates"},
-            {n:"Lovefrommeli", u:"https://www.youtube.com/@lovefrommeli"},
+            {n:"Lovefrommeli", u:"https://www.youtube.com/@Lovefrommeli"},
             {n:"Chloe Ting", u:"https://www.youtube.com/@ChloeTing"}
         ];
 
-        const focuses = ["Glutes & Core 🍑", "Pelvic Floor & Full Body 🦢", "Abs & Waist 🎀", "Arms & Posture 🩰", "Inner Thighs 🏹", "HIIT Burn 🔥", "Recovery 🕊️"];
-        
+        const focuses = [
+            "Glutes & Deep Core 🍑", "Pelvic Floor & Full Body 🦢", "Waist Cincher & Abs 🎀",
+            "Lean Arms & Posture 🩰", "Inner Thighs & Pilates 🏹", "Full Body HIIT Burn 🔥", "Stretch & Recovery 🕊️"
+        ];
+
         const recipes = [
             {n:"Berry Protein Shake", c:220, p:25}, {n:"Vanilla Proats", c:310, p:20}, {n:"Avo Egg Toast", c:280, p:18},
             {n:"Greek Yogurt Bowl", c:190, p:22}, {n:"Lean Chicken Salad", c:350, p:35}, {n:"Salmon & Greens", c:410, p:30},
             {n:"Cottage Cheese Pancakes", c:290, p:24}, {n:"Turkey Wraps", c:320, p:28}, {n:"Shrimp Zoodles", c:250, p:26},
             {n:"Tofu Scramble", c:240, p:20}, {n:"White Fish Bake", c:300, p:32}, {n:"Beef Stir Fry", c:450, p:38},
             {n:"Lentil Soup", c:280, p:15}, {n:"Quinoa Salad", c:340, p:12}, {n:"Protein Coffee", c:120, p:15},
-            {n:"Boiled Eggs & Fruit", c:180, p:13}, {n:"Tuna Melt", c:330, p:29}, {n:"Chia Pudding", c:210, p:10},
-            {n:"Miso Salmon", c:380, p:30}, {n:"Lemon Chicken", c:310, p:35}, {n:"Edamame Bowl", c:220, p:18},
-            {n:"Egg White Omelet", c:160, p:20}, {n:"Skyr & Honey", c:150, p:20}, {n:"Hummus & Veg", c:200, p:8},
+            {n:"Boiled Eggs & Fruit", c:180, p:13}, {n:"Tuna Melt (Light)", c:330, p:29}, {n:"Chia Pudding", c:210, p:10},
+            {n:"Miso Glazed Salmon", c:380, p:30}, {n:"Lemon Chicken", c:310, p:35}, {n:"Edamame Bowl", c:220, p:18},
+            {n:"Egg White Omelet", c:160, p:20}, {n:"Skyr & Honey", c:150, p:20}, {n:"Hummus & Veggies", c:200, p:8},
             {n:"Poke Bowl", c:420, p:28}, {n:"Ricotta Toast", c:240, p:12}, {n:"Baked Cod", c:270, p:30},
-            {n:"Lean Chili", c:390, p:33}, {n:"Apple & PB", c:190, p:5}, {n:"Protein Brownie", c:150, p:12}
+            {n:"Lean Chili", c:390, p:33}, {n:"Peanut Butter Apple", c:190, p:5}, {n:"Protein Brownie", c:150, p:12}
         ];
 
-        const notes = ["Discipline is elegance. 🌷", "You are blooming. 🎀", "Small steps, big glow. 🏹", "Stay soft, stay strong. 🦢"];
+        const notes = ["Discipline is elegance. 🌷", "You are blooming beautifully. 🎀", "Small steps, big glow. 🏹", "Stay soft, stay strong. 🦢", "Your future self is thanking you. ✨"];
 
         function nextQ(n) {
             document.querySelectorAll('.step-q').forEach(s => s.style.display = 'none');
@@ -365,10 +291,10 @@
         function finishOnboarding() {
             db.name = document.getElementById('in-name').value || "Angel";
             db.focus = document.getElementById('in-body-goal').value;
-            const w = parseFloat(document.getElementById('in-weight').value) || 0;
-            const wa = parseFloat(document.getElementById('in-waist').value) || 0;
-            if(w) db.weights.push({v:w, d:new Date().toLocaleDateString()});
-            if(wa) db.waists.push({v:wa, d:new Date().toLocaleDateString()});
+            const w = parseFloat(document.getElementById('in-weight').value) || 60;
+            const wa = parseFloat(document.getElementById('in-waist').value) || 70;
+            db.weights.push({v:w, d:new Date().toLocaleDateString()});
+            db.waists.push({v:wa, d:new Date().toLocaleDateString()});
             db.setup = true;
             save(); render();
         }
@@ -394,10 +320,10 @@
             document.getElementById('prot-count').innerText = `${day.p}/${db.prot}g Prot`;
             
             const ring = document.querySelector('.progress-ring__circle');
-            const off = 565.48 - (Math.min(1, day.c/db.limit) * 565.48);
+            const off = 502.65 - (Math.min(1, day.c/db.limit) * 502.65); // Circle circumference adjust
             ring.style.strokeDashoffset = off;
 
-            const rituals = ["Sculpting Session 🩰", "8 Glasses Water 🥛", "Nourishment Goal 🍓", "Self Care 🌙"];
+            const rituals = ["Sculpting Session 🩰", "8 Glasses Water 🥛", "Nourishment Goal 🍓", "Self Care Moment 🌙"];
             document.getElementById('ritual-list').innerHTML = rituals.map((r,i) => `
                 <div class="ritual-item">
                     <input type="checkbox" ${day.r[i]?'checked':''} onchange="checkRitual(${i})">
@@ -446,15 +372,15 @@
         }
 
         function renderSculpt() {
-            const d = Math.abs(db.offset);
-            const week = Math.floor(d / 7) + 1;
-            const creator = creators[d % 7];
-            document.getElementById('daily-focus').innerText = focuses[d % 7];
-            document.getElementById('diff-week').innerText = "Week " + week + (week > 2 ? " • HIIT Intensity" : "");
+            const dayIdx = Math.abs(db.offset);
+            const weekNum = Math.floor(dayIdx / 7) + 1;
+            const creator = creators[dayIdx % 7];
+            document.getElementById('daily-focus').innerText = focuses[dayIdx % 7];
+            document.getElementById('diff-week').innerText = "Difficulty: Week " + weekNum + (weekNum > 2 ? " (HIIT Mode)" : "");
             document.getElementById('video-links').innerHTML = `
-                <div class="ritual-item">
-                    <div style="flex:1"><b>${creator.n}</b><br><small>Workout Profile</small></div>
-                    <a href="${creator.u}" target="_blank" style="color:var(--ribbon-pink); text-decoration:none; font-weight:bold;">Watch ▶️</a>
+                <div class="ritual-item" style="flex-direction: column; gap: 10px;">
+                    <div><b>Profile: ${creator.n}</b></div>
+                    <a href="${creator.u}" target="_blank" style="color:var(--ribbon-pink); text-decoration:none; font-weight:bold; background: var(--lace-white); padding: 8px 20px; border-radius: 15px;">Open YouTube Profile ▶️</a>
                 </div>
             `;
         }
@@ -462,8 +388,8 @@
         function renderMeals() {
             const q = document.getElementById('mealSearch').value.toLowerCase();
             document.getElementById('meal-list').innerHTML = recipes.filter(r => r.n.toLowerCase().includes(q)).map(r => `
-                <div class="ritual-item" onclick="addFood(${r.c}, ${r.p})" style="cursor:pointer">
-                    <span>${r.n}<br><small>${r.p}g Protein</small></span>
+                <div class="ritual-item" onclick="addFood(${r.c}, ${r.p})" style="cursor:pointer; justify-content: space-between;">
+                    <div style="text-align: left;">${r.n} <br><small>${r.p}g Prot</small></div>
                     <span style="color:var(--ribbon-pink); font-weight:bold;">+${r.c}</span>
                 </div>
             `).join('');
@@ -475,7 +401,7 @@
             if(day.r.every(x => x === true) && !day.done) {
                 day.done = true; db.streak++;
             } else if (!day.r.every(x => x === true) && day.done) {
-                day.done = false; db.streak = Math.max(0, db.streak-1);
+                day.done = false; db.streak = Math.max(0, db.streak - 1);
             }
             save(); render();
         }
@@ -495,7 +421,7 @@
             db.limit = parseInt(document.getElementById('set-cals').value);
             db.prot = parseInt(document.getElementById('set-prot').value);
             save(); render();
-            alert("Goals updated! 🎀");
+            alert("Settings updated! 🎀");
         }
 
         function changeDay(n) { db.offset += n; document.getElementById('display-date').innerText = db.offset==0?"Today":"Day "+db.offset; render(); }
@@ -512,8 +438,10 @@
             const reader = new FileReader();
             reader.onload = e => { 
                 const img = document.getElementById(id);
-                img.src = e.target.result; img.style.display = 'block';
-                input.parentElement.querySelector('span').style.display = 'none';
+                img.src = e.target.result; 
+                img.style.display = 'block';
+                const labelId = id === 'p-front' ? 't-front' : 't-side';
+                document.getElementById(labelId).style.display = 'none';
             };
             reader.readAsDataURL(input.files[0]);
         }
@@ -521,16 +449,25 @@
         function savePhotos() {
             const f = document.getElementById('p-front').src;
             const s = document.getElementById('p-side').src;
-            if(!f || f.includes('none') || !s || s.includes('none')) return alert("Upload both, angel! 🎀");
+            if(!f || f.includes('none') || !s || s.includes('none')) return alert("Upload both photos first! 🎀");
             db.photos.unshift({f, s, d: new Date().toLocaleDateString()});
-            save(); renderHistory();
-            alert("Weekly entry saved! 📸");
+            save();
+            renderHistory();
+            // Reset
+            document.getElementById('p-front').style.display = 'none';
+            document.getElementById('p-side').style.display = 'none';
+            document.getElementById('t-front').style.display = 'block';
+            document.getElementById('t-side').style.display = 'block';
+            alert("Weekly entry saved to your vault! 📸");
         }
 
         function renderHistory() {
             const container = document.getElementById('photo-history');
-            if(!db.photos || !db.photos.length) return container.innerHTML = "";
-            container.innerHTML = "<p class='serif'>Vault History</p>" + db.photos.map(p => `
+            if(!db.photos || !db.photos.length) {
+                container.innerHTML = "<p style='text-align:center; font-size:0.75rem; opacity:0.5; margin-top:20px;'>Your visual vault is empty.</p>";
+                return;
+            }
+            container.innerHTML = "<h3 class='serif' style='font-size: 1rem; margin-top: 25px;'>Vault History</h3>" + db.photos.map(p => `
                 <div class="history-card">
                     <small class="serif">${p.d}</small>
                     <div class="history-flex">
@@ -541,7 +478,7 @@
             `).join('');
         }
 
-        function save() { localStorage.setItem('beau_v13', JSON.stringify(db)); }
+        function save() { localStorage.setItem('beau_final_v1', JSON.stringify(db)); }
         window.onload = render;
     </script>
 </body>
